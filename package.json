@@ -1,0 +1,35 @@
+{
+	"name": "battle-ship-game",
+	"version": "1.0.0",
+	"description": "Terminal Battle Ship Game",
+	"main": "src/Model/Math.ts",
+	"repository": "https://github.com/jaychakra/battle-ship",
+	"author": "Jay Chakra",
+	"license": "MIT",
+	"private": false,
+	"dependencies": {
+
+		"chalk": "^4.0.0",
+		"inquirer": "^7.1.0",
+		"uuid": "^8.1.0"
+	},
+	"scripts": {
+		"dev": "nodemon src/index.ts --inspect",
+		"start": "node dist/index.js",
+		"build": "tsc",
+		"test": "jest"
+	},
+	"devDependencies": {
+		"@types/inquirer": "^6.5.0",
+    "@types/uuid": "^8.0.0",
+		"@types/jest": "^25.2.3",
+		"@types/node": "^14.0.5",
+		"jest": "^26.0.1",
+		"nodemon": "^2.0.4",
+		"ts-jest": "^26.0.0",
+		"ts-node": "^8.10.1",
+		"tslint": "^6.1.2",
+		"typescript": "^3.9.3",
+		"typescript-eslint": "^0.0.1-alpha.0"
+	}
+}
