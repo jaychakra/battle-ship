@@ -1,12 +1,12 @@
-import {Game} from "./Game";
+import {Game} from "./Game/Game";
 import {prompt} from "inquirer";
-import {Player} from "../Player";
-import {Strike} from "../Strike";
-import {PlayerDataStore} from "../../DataStore/PlayerDataStore";
+import {Player} from "./Player";
+import {Strike} from "./Strike";
+import {PlayerDataStore} from "../DataStore/PlayerDataStore";
+import {GameStateIdentifier} from "../Enum";
 
 class GameController {
   private game: Game;
-  private isLooping: boolean;
   private playerDataStore: PlayerDataStore;
 
   constructor(game: Game) {
@@ -52,8 +52,7 @@ class GameController {
   }
 
   public async loop(): Promise<any> {
-    this.isLooping = true;
-    while (this.isLooping) {
+    while (this.game.getGameState() != GameStateIdentifier.COMPLETED) {
       this.game.render(this.game.getStriker());
       await this.attackInput();
     }

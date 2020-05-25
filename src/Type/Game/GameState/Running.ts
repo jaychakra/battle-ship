@@ -2,13 +2,13 @@ import {Game} from "../Game";
 import {Strike} from "../../Strike";
 import {GameState} from "./GameState";
 import {Player} from "../../Player";
-import {Impact} from "../../../Enum";
+import {GameStateIdentifier, Impact} from "../../../Enum";
 import {Completed} from "./Completed";
 
 class Running extends GameState {
   constructor(context: Game) {
     super();
-    this.stateName = "Running";
+    this.name = GameStateIdentifier.RUNNING;
     this.context = context;
   }
 

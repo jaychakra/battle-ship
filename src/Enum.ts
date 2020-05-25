@@ -3,11 +3,6 @@ enum GameMode {
   TWO_PLAYER
 }
 
-enum ShipOrientation {
-  HORIZONTAL,
-  VERTICAL,
-}
-
 enum SeaEntityStatus {
   CLEAN,
   DIRTY,
@@ -39,7 +34,11 @@ enum Impact {
   OPPONENT_DESTROYED
 }
 
+enum GameStateIdentifier {
+  INITIALIZING,
+  RUNNING,
+  COMPLETED
+}
 
 
-
-export {GameMode, ShipOrientation, SeaEntityStatus, PlayerIdentifier, SurfaceType, ShipTypes, Impact}
+export {GameMode, GameStateIdentifier, SeaEntityStatus, PlayerIdentifier, SurfaceType, ShipTypes, Impact}

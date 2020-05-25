@@ -1,4 +1,4 @@
-import {GameMode, PlayerIdentifier} from "../../Enum";
+import {GameMode, GameStateIdentifier, PlayerIdentifier} from "../../Enum";
 import {GameState} from "./GameState/GameState";
 import {Player} from "../Player";
 import {Strike} from "../Strike";
@@ -8,7 +8,7 @@ import {Board} from "../Board/Board";
 
 class Game {
   private gameMode: GameMode;
-  gameState: GameState;
+  private gameState: GameState;
   currentPlayer: PlayerIdentifier;
   gameView: GameView;
   winner: PlayerIdentifier;
@@ -56,6 +56,11 @@ class Game {
     const opponent: PlayerIdentifier = Game.getRivalIdentifier(this.currentPlayer);
     return this.players.get(opponent);
   }
+
+  public getGameState () : GameStateIdentifier {
+    return this.gameState.getName();
+  }
+
 }
 
 export {Game}
