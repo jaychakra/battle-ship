@@ -1,7 +1,7 @@
 import {Game} from "./Game/Game";
 import {prompt} from "inquirer";
 import {Player} from "./Player";
-import {Strike} from "./Strike";
+import {Strike} from "./WarHead/Strike";
 import {PlayerDataStore} from "../DataStore/PlayerDataStore";
 import {GameStateIdentifier} from "../Enum";
 

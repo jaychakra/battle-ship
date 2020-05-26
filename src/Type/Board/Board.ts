@@ -2,7 +2,7 @@ import {Surface} from "./Surface";
 import {Water} from "../SeaEntity/Water";
 import {Ship} from "../SeaEntity/Ship";
 import {Configuration} from "../../configuration";
-import {Strike} from "../Strike";
+import {Strike} from "../WarHead/Strike";
 import {Impact, SeaEntityStatus} from "../../Enum";
 
 class Board {

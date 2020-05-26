@@ -1,4 +1,4 @@
-import {Impact} from "../Enum";
+import {Impact} from "../../Enum";
 
 class Strike {
   readonly destination: String [];

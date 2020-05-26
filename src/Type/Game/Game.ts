@@ -1,7 +1,7 @@
 import {GameMode, GameStateIdentifier, PlayerIdentifier} from "../../Enum";
 import {GameState} from "./GameState/GameState";
 import {Player} from "../Player";
-import {Strike} from "../Strike";
+import {Strike} from "../WarHead/Strike";
 import {Initializing} from "./GameState/Initializing";
 import {GameView} from "./GameView";
 import {Board} from "../Board/Board";

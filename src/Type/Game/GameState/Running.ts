@@ -1,5 +1,5 @@
 import {Game} from "../Game";
-import {Strike} from "../../Strike";
+import {Strike} from "../../WarHead/Strike";
 import {GameState} from "./GameState";
 import {Player} from "../../Player";
 import {GameStateIdentifier, Impact} from "../../../Enum";

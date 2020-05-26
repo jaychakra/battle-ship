@@ -1,6 +1,6 @@
 import {Game} from '../Game';
 import {Player} from '../../Player';
-import {Strike} from '../../Strike';
+import {Strike} from '../../WarHead/Strike';
 import {GameStateIdentifier} from "../../../Enum";
 
 abstract class GameState {
