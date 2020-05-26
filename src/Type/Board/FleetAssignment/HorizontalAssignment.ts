@@ -1,6 +1,6 @@
 import {FleetAssignmentStrategy} from "./FleetAssignmentStrategy";
 import {Ship} from "../../SeaEntity/Ship";
-import {ShipTypes} from "../../../Enum";
+import {SeaEntityIdentifier} from "../../../Enum";
 import {Battleship} from "../../SeaEntity/Battleship";
 import {Configuration} from "../../../configuration";
 import {Cruiser} from "../../SeaEntity/Cruiser";
@@ -21,11 +21,11 @@ class HorizontalAssignment implements FleetAssignmentStrategy {
   execute(): Ship[] {
     let row = 0;
     const response: Ship[] = [];
-    response.push(new Cruiser(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.CRUISER])));
-    response.push(new Battleship(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.BATTLESHIP])));
-    response.push(new Destroyer(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.DESTROYER])));
-    response.push(new Carrier(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.CARRIER])));
-    response.push(new Submarine(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.SUBMARINE])));
+    response.push(new Cruiser(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[SeaEntityIdentifier.CRUISER])));
+    response.push(new Battleship(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[SeaEntityIdentifier.BATTLESHIP])));
+    response.push(new Destroyer(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[SeaEntityIdentifier.DESTROYER])));
+    response.push(new Carrier(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[SeaEntityIdentifier.CARRIER])));
+    response.push(new Submarine(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[SeaEntityIdentifier.SUBMARINE])));
     return response;
   }
 }

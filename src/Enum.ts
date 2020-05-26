@@ -14,14 +14,6 @@ enum PlayerIdentifier {
   SECOND
 }
 
-enum ShipTypes {
-  DESTROYER,
-  CARRIER,
-  SUBMARINE,
-  CRUISER,
-  BATTLESHIP
-}
-
 enum Impact {
   WATER_SPLASHED,
   SHIP_WEAKENED,
@@ -44,4 +36,4 @@ enum SeaEntityIdentifier {
   SUBMARINE,
 }
 
-export {GameMode, GameStateIdentifier, SeaEntityStatus, PlayerIdentifier, ShipTypes, Impact, SeaEntityIdentifier}
+export {GameMode, GameStateIdentifier, SeaEntityStatus, PlayerIdentifier, Impact, SeaEntityIdentifier}

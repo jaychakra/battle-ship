@@ -1,15 +1,15 @@
 import {HorizontalAssignment} from "./Type/Board/FleetAssignment/HorizontalAssignment";
-import {SeaEntityIdentifier, ShipTypes} from "./Enum";
+import {SeaEntityIdentifier} from "./Enum";
 
 const Configuration = {
   boardSize: 9,
   fleetAssignmentStrategy: new HorizontalAssignment(),
   shipsLength: {
-    [ShipTypes.BATTLESHIP]: 4,
-    [ShipTypes.CRUISER]: 3,
-    [ShipTypes.SUBMARINE]: 3,
-    [ShipTypes.CARRIER]: 5,
-    [ShipTypes.DESTROYER]: 2,
+    [SeaEntityIdentifier.BATTLESHIP]: 4,
+    [SeaEntityIdentifier.CRUISER]: 3,
+    [SeaEntityIdentifier.SUBMARINE]: 3,
+    [SeaEntityIdentifier.CARRIER]: 5,
+    [SeaEntityIdentifier.DESTROYER]: 2,
   },
   seaEntityColors: {
     [SeaEntityIdentifier.CRUISER]: "#f7ff00",
