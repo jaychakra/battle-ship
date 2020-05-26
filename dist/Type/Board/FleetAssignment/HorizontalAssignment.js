@@ -20,11 +20,11 @@ class HorizontalAssignment {
     execute() {
         let row = 0;
         const response = [];
-        response.push(new Cruiser_1.Cruiser(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.ShipTypes.CRUISER])));
-        response.push(new Battleship_1.Battleship(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.ShipTypes.BATTLESHIP])));
-        response.push(new Destroyer_1.Destroyer(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.ShipTypes.DESTROYER])));
-        response.push(new Carrier_1.Carrier(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.ShipTypes.CARRIER])));
-        response.push(new Submarine_1.Submarine(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.ShipTypes.SUBMARINE])));
+        response.push(new Cruiser_1.Cruiser(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.SeaEntityIdentifier.CRUISER])));
+        response.push(new Battleship_1.Battleship(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.SeaEntityIdentifier.BATTLESHIP])));
+        response.push(new Destroyer_1.Destroyer(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.SeaEntityIdentifier.DESTROYER])));
+        response.push(new Carrier_1.Carrier(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.SeaEntityIdentifier.CARRIER])));
+        response.push(new Submarine_1.Submarine(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.SeaEntityIdentifier.SUBMARINE])));
         return response;
     }
 }

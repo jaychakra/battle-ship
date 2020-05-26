@@ -1,14 +1,14 @@
 import { HorizontalAssignment } from "./Type/Board/FleetAssignment/HorizontalAssignment";
-import { SeaEntityIdentifier, ShipTypes } from "./Enum";
+import { SeaEntityIdentifier } from "./Enum";
 declare const Configuration: {
     boardSize: number;
     fleetAssignmentStrategy: HorizontalAssignment;
     shipsLength: {
-        4: number;
         3: number;
+        4: number;
+        5: number;
         2: number;
         1: number;
-        0: number;
     };
     seaEntityColors: {
         4: string;

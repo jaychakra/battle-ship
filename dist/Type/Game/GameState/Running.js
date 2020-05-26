@@ -27,7 +27,7 @@ class Running extends GameState_1.GameState {
         rivalBoard.changeSurfaceState(strike);
         this.assessImpact(strike);
     }
-    render(player) {
+    render() {
         this.context.gameView.drawBoard();
     }
 }

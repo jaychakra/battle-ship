@@ -20,21 +20,25 @@ let Board = /** @class */ (() => {
                 }
             }
         }
+        assessImpact(s, coordinate) {
+            const impact = coordinate.entity.assessStrikeImpact(this);
+            s.addImpact(impact);
+        }
         getHealth(block) {
             if (!this.coordinates.has(block))
                 throw new Error("Invalid Block on board");
             // @ts-ignore
             return this.coordinates.get(block).getHealth();
         }
-        assessImpact(s, coordinate) {
-            const impact = coordinate.entity.assessStrikeImpact(this);
-            s.addImpact(impact);
+        getSurface(block) {
+            // @ts-ignore
+            return this.coordinates.get(block);
         }
         changeSurfaceState(s) {
             for (let block of s.destination) {
                 const coordinate = this.coordinates.get(block);
                 if (!!coordinate) {
-                    coordinate.setHealthTo(0);
+                    coordinate.setHealth(0);
                     this.assessImpact(s, coordinate);
                 }
             }
@@ -45,10 +49,6 @@ let Board = /** @class */ (() => {
             }
             if (deadShips == this.fleet.length)
                 s.addImpact(Enum_1.Impact.OPPONENT_DESTROYED);
-        }
-        getSurface(block) {
-            // @ts-ignore
-            return this.coordinates.get(block);
         }
     }
     Board.generateCoordinate = (n) => {

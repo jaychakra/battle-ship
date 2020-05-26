@@ -6,7 +6,7 @@ class Surface {
         this.health = 100;
         this.entity = entity;
     }
-    setHealthTo(health) {
+    setHealth(health) {
         this.health = health;
     }
     getHealth() {

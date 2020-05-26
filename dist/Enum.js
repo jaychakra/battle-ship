@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SeaEntityIdentifier = exports.Impact = exports.ShipTypes = exports.PlayerIdentifier = exports.SeaEntityStatus = exports.GameStateIdentifier = exports.GameMode = void 0;
+exports.SeaEntityIdentifier = exports.Impact = exports.PlayerIdentifier = exports.SeaEntityStatus = exports.GameStateIdentifier = exports.GameMode = void 0;
 var GameMode;
 (function (GameMode) {
     GameMode[GameMode["COMPUTER"] = 0] = "COMPUTER";
@@ -10,8 +10,7 @@ exports.GameMode = GameMode;
 var SeaEntityStatus;
 (function (SeaEntityStatus) {
     SeaEntityStatus[SeaEntityStatus["CLEAN"] = 0] = "CLEAN";
-    SeaEntityStatus[SeaEntityStatus["DIRTY"] = 1] = "DIRTY";
-    SeaEntityStatus[SeaEntityStatus["DESTROYED"] = 2] = "DESTROYED";
+    SeaEntityStatus[SeaEntityStatus["DESTROYED"] = 1] = "DESTROYED";
 })(SeaEntityStatus || (SeaEntityStatus = {}));
 exports.SeaEntityStatus = SeaEntityStatus;
 var PlayerIdentifier;
@@ -20,15 +19,6 @@ var PlayerIdentifier;
     PlayerIdentifier[PlayerIdentifier["SECOND"] = 1] = "SECOND";
 })(PlayerIdentifier || (PlayerIdentifier = {}));
 exports.PlayerIdentifier = PlayerIdentifier;
-var ShipTypes;
-(function (ShipTypes) {
-    ShipTypes[ShipTypes["DESTROYER"] = 0] = "DESTROYER";
-    ShipTypes[ShipTypes["CARRIER"] = 1] = "CARRIER";
-    ShipTypes[ShipTypes["SUBMARINE"] = 2] = "SUBMARINE";
-    ShipTypes[ShipTypes["CRUISER"] = 3] = "CRUISER";
-    ShipTypes[ShipTypes["BATTLESHIP"] = 4] = "BATTLESHIP";
-})(ShipTypes || (ShipTypes = {}));
-exports.ShipTypes = ShipTypes;
 var Impact;
 (function (Impact) {
     Impact[Impact["WATER_SPLASHED"] = 0] = "WATER_SPLASHED";

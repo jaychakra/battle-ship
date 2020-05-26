@@ -6,9 +6,9 @@ declare class Board {
     fleet: Ship[];
     constructor();
     private static generateCoordinate;
-    getHealth(block: String): number;
     private assessImpact;
-    changeSurfaceState(s: Strike): void;
+    getHealth(block: String): number;
     getSurface(block: String): Surface;
+    changeSurfaceState(s: Strike): void;
 }
 export { Board };

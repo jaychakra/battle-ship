@@ -4,19 +4,11 @@ declare enum GameMode {
 }
 declare enum SeaEntityStatus {
     CLEAN = 0,
-    DIRTY = 1,
-    DESTROYED = 2
+    DESTROYED = 1
 }
 declare enum PlayerIdentifier {
     FIRST = 0,
     SECOND = 1
-}
-declare enum ShipTypes {
-    DESTROYER = 0,
-    CARRIER = 1,
-    SUBMARINE = 2,
-    CRUISER = 3,
-    BATTLESHIP = 4
 }
 declare enum Impact {
     WATER_SPLASHED = 0,
@@ -37,4 +29,4 @@ declare enum SeaEntityIdentifier {
     CRUISER = 4,
     SUBMARINE = 5
 }
-export { GameMode, GameStateIdentifier, SeaEntityStatus, PlayerIdentifier, ShipTypes, Impact, SeaEntityIdentifier };
+export { GameMode, GameStateIdentifier, SeaEntityStatus, PlayerIdentifier, Impact, SeaEntityIdentifier };

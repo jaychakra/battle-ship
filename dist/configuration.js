@@ -7,11 +7,11 @@ const Configuration = {
     boardSize: 9,
     fleetAssignmentStrategy: new HorizontalAssignment_1.HorizontalAssignment(),
     shipsLength: {
-        [Enum_1.ShipTypes.BATTLESHIP]: 4,
-        [Enum_1.ShipTypes.CRUISER]: 3,
-        [Enum_1.ShipTypes.SUBMARINE]: 3,
-        [Enum_1.ShipTypes.CARRIER]: 5,
-        [Enum_1.ShipTypes.DESTROYER]: 2,
+        [Enum_1.SeaEntityIdentifier.BATTLESHIP]: 4,
+        [Enum_1.SeaEntityIdentifier.CRUISER]: 3,
+        [Enum_1.SeaEntityIdentifier.SUBMARINE]: 3,
+        [Enum_1.SeaEntityIdentifier.CARRIER]: 5,
+        [Enum_1.SeaEntityIdentifier.DESTROYER]: 2,
     },
     seaEntityColors: {
         [Enum_1.SeaEntityIdentifier.CRUISER]: "#f7ff00",

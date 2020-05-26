@@ -18,7 +18,7 @@ declare class Game {
     changePlayersTurn(): void;
     addPlayer(player: Player): void;
     attack(strike: Strike): void;
-    render(player: Player): void;
+    render(): void;
     getStriker(): any;
     getOpponent(): any;
     getGameState(): GameStateIdentifier;

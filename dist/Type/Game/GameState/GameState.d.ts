@@ -5,9 +5,9 @@ import { GameStateIdentifier } from "../../../Enum";
 declare abstract class GameState {
     protected context: Game;
     protected name: GameStateIdentifier;
-    addPlayer(player: Player): void;
-    render(player: Player): void;
-    attack(strike: Strike): void;
     getName(): GameStateIdentifier;
+    addPlayer(player: Player): void;
+    render(): void;
+    attack(strike: Strike): void;
 }
 export { GameState };

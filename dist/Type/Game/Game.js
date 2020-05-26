@@ -28,8 +28,8 @@ class Game {
     attack(strike) {
         this.gameState.attack(strike);
     }
-    render(player) {
-        this.gameState.render(player);
+    render() {
+        this.gameState.render();
     }
     getStriker() {
         return this.players.get(this.currentPlayer);

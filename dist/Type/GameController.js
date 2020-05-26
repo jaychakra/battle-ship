@@ -42,7 +42,7 @@ class GameController {
     }
     async loop() {
         while (this.game.getGameState() != Enum_1.GameStateIdentifier.COMPLETED) {
-            this.game.render(this.game.getStriker());
+            this.game.render();
             await this.attackInput();
         }
     }
