@@ -14,7 +14,7 @@ class Running extends GameState {
 
   private assessImpact(strike: Strike):void {
     if (strike.hasImpact(Impact.OPPONENT_DESTROYED)) {
-      this.context.winner = this.context.currentPlayer;
+      this.context.setWinner(this.context.currentPlayer);
       console.log(`Congratulations ${this.context.getStriker().getName()} has won`);
       this.context.changeState(new Completed(this.context));
     } else {

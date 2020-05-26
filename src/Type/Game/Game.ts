@@ -11,7 +11,7 @@ class Game {
   private gameState: GameState;
   currentPlayer: PlayerIdentifier;
   gameView: GameView;
-  winner: PlayerIdentifier;
+  private winner: PlayerIdentifier;
   readonly players: Map<PlayerIdentifier, Player>;
   readonly boards: Map<PlayerIdentifier, Board>;
 
@@ -57,10 +57,23 @@ class Game {
     return this.players.get(opponent);
   }
 
-  public getGameState () : GameStateIdentifier {
+  public getGameState(): GameStateIdentifier {
     return this.gameState.getName();
   }
 
+  public getWinner(): PlayerIdentifier {
+    return this.winner;
+  }
+
+  public setWinner(winner: PlayerIdentifier): void {
+    if (!!this.winner) throw new Error("Game already has a winner");
+    this.winner = winner;
+  }
+
+  public getPlayer(id: PlayerIdentifier): Player {
+    // @ts-ignore
+    return this.players.get(id);
+  }
 }
 
 export {Game}

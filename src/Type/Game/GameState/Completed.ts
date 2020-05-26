@@ -8,6 +8,15 @@ class Completed extends GameState {
     super();
     this.name = GameStateIdentifier.COMPLETED;
     this.context = context;
+
+
+  }
+  private updatePlayerHistory(): void {
+    const winner = this.context.getWinner();
+    const runner = Game.getRivalIdentifier(winner);
+
+    this.context.getPlayer(winner).addAPlayedGame(this.context);
+    this.context.getPlayer(runner).addAPlayedGame(this.context);
   }
 }
 export {Completed}
