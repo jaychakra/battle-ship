@@ -23,7 +23,6 @@ class Running extends GameState {
   }
 
   public attack(strike: Strike): void {
-    console.log(`Attacking on ${this.context.getOpponent().getName()}`);
     const rivalBoard = this.context.boards.get(Game.getRivalIdentifier(this.context.currentPlayer));
     // @ts-ignore
     rivalBoard.changeSurfaceState(strike);

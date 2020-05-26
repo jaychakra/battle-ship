@@ -33,21 +33,29 @@ class GameView {
 
   private buildUI(board: Board | any, playerIdentifier: PlayerIdentifier): String[][] {
     const n: number = Configuration.boardSize
+    const header = Configuration.boardHeader;
     const displayBoard: String[][] = [[]];
     displayBoard[0] = Array(Configuration.boardSize + 1);
-    displayBoard[0][0] = GameView.paint("#000000", "#FFFFFF",  "+");
-    for (let i = 1; i <= Configuration.boardSize; i++) displayBoard[0][i] = GameView.paint("#000000", "#FFFFFF",  String.fromCharCode(64 + i));
+    displayBoard[0][0] = GameView.paint(header.fgColor, header.bgColor, " ");
+    for (let i = 1; i <= Configuration.boardSize; i++) displayBoard[0][i] = GameView.paint(header.fgColor, header.bgColor, `${i}`);
 
     for (let i = 1; i <= n; i++) {
       displayBoard[i] = Array(Configuration.boardSize + 1);
-      displayBoard[i][0] = GameView.paint("#000000", "#FFFFFF",  String.fromCharCode(64 + i));
+      displayBoard[i][0] = GameView.paint(header.fgColor, header.bgColor, String.fromCharCode(64 + i));
       for (let j = 1; j <= n; j++) {
         const block: String = this.blockMap[i][j];
         const surface: Surface = board.getSurface(block);
         if (surface.getHealth() == 0) {
-          displayBoard[i][j] = GameView.paint('#dedede', '#000000', "X");
+          displayBoard[i][j] = GameView.paint('#dedede', Configuration.damageColors.DESTROYED, " ");
         } else {
-          displayBoard[i][j] = GameView.paint('#dedede', '#000000', " ");
+          if (playerIdentifier == this.game.currentPlayer) {
+            // @ts-ignore
+            const bgColor:string = Configuration.seaEntityColors[surface.entity.getSeaEntityIdentifier()];
+            displayBoard[i][j] = GameView.paint('#dedede', bgColor, " ");
+
+          } else {
+            displayBoard[i][j] = GameView.paint('#dedede', Configuration.damageColors.CLEAN, " ");
+          }
         }
       }
     }
@@ -58,14 +66,14 @@ class GameView {
     const n: number = Configuration.boardSize
     console.log(`${this.game.getStriker().getName()}'s Board, ${this.game.getOpponent().getName()}'s Board`)
     for (let i = 0; i <= n; i++) {
-      let line: String = "";
+      let line: string = "";
 
       for (let j = 0; j <= n; j++) {
-        line += `${s[i][j]}`;
+        line += s[i][j];
       }
 
       for (let j = 0; j <= n; j++) {
-        line += `${o[i][j]}`;
+        line += o[i][j];
       }
       console.log(line);
     }

@@ -23,9 +23,9 @@ class HorizontalAssignment implements FleetAssignmentStrategy {
     const response: Ship[] = [];
     response.push(new Cruiser(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.CRUISER])));
     response.push(new Battleship(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.BATTLESHIP])));
-    // response.push(new Destroyer(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.DESTROYER])));
-    // response.push(new Carrier(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.CARRIER])));
-    // response.push(new Submarine(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.SUBMARINE])));
+    response.push(new Destroyer(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.DESTROYER])));
+    response.push(new Carrier(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.CARRIER])));
+    response.push(new Submarine(HorizontalAssignment.getBlocks(row++, Configuration.shipsLength[ShipTypes.SUBMARINE])));
     return response;
   }
 }
