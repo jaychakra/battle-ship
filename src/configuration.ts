@@ -1,11 +1,12 @@
 import {HorizontalAssignment} from "./Type/Board/FleetAssignment/HorizontalAssignment";
-import {SeaEntityIdentifier} from "./Enum";
+import {GameMode, SeaEntityIdentifier} from "./Enum";
 import {DoorGun} from "./Type/WarHead/DestructionStrategy/DoorGun";
 
 const Configuration = {
   boardSize: 9,
   fleetAssignmentStrategy: new HorizontalAssignment(),
   destructionStrategy: new DoorGun(),
+  gameController: GameMode.COMPUTER,
   shipsLength: {
     [SeaEntityIdentifier.BATTLESHIP]: 4,
     [SeaEntityIdentifier.CRUISER]: 3,

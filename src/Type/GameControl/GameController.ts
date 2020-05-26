@@ -1,16 +1,15 @@
 import {prompt} from "inquirer";
-import {Game} from "./Game/Game";
-import {Player} from "./Player";
-import {Strike} from "./WarHead/Strike";
-import {PlayerDataStore} from "../DataStore/PlayerDataStore";
-import {GameStateIdentifier} from "../Enum";
-import {Configuration} from "../configuration";
+import {Game} from "../Game/Game";
+import {Player} from "../Player";
+import {Strike} from "../WarHead/Strike";
+import {PlayerDataStore} from "../../DataStore/PlayerDataStore";
+import {Configuration} from "../../configuration";
 
-class GameController {
-  private game: Game;
-  private playerDataStore: PlayerDataStore;
+abstract class GameController {
+  protected game: Game;
+  protected playerDataStore: PlayerDataStore;
 
-  constructor(game: Game) {
+  protected constructor(game: Game) {
     this.game = game;
     this.playerDataStore = PlayerDataStore.getInstance();
   }
@@ -35,16 +34,22 @@ class GameController {
     this.game.addPlayer(player)
   }
 
-  private async attackInput(): Promise<any> {
+  protected strikeBoard(blockString: string) {
+    console.log(blockString);
+    const strike: Strike = new Strike(blockString.split(" "), Configuration.destructionStrategy);
+    this.game.attack(strike);
+  }
+
+  protected async attackInput(): Promise<any> {
     const question = {
       name: "blocks",
       type: prompt,
       message: `${this.game.getStriker().getName()}: Attack?`
     }
-    const answer: any = await prompt([question]);
 
-    const strike: Strike = new Strike(answer.blocks.split(" "), Configuration.destructionStrategy);
-    this.game.attack(strike);
+    const answers = await prompt([question]);
+
+    return answers.blocks;
   }
 
   public async init(): Promise<any> {
@@ -52,12 +57,7 @@ class GameController {
     await this.addPlayerInput(2);
   }
 
-  public async loop(): Promise<any> {
-    while (this.game.getGameState() != GameStateIdentifier.COMPLETED) {
-      this.game.render();
-      await this.attackInput();
-    }
-  }
+  public abstract async loop(): Promise<any>
 }
 
 export {GameController}

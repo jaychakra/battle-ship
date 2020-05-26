@@ -12,7 +12,7 @@ class Board {
   constructor() {
     this.coordinates = new Map<String, Surface>();
     this.fleet = Configuration.fleetAssignmentStrategy.execute();
-    const possibleCoordinates = Board.generateCoordinate(Configuration.boardSize);
+    const possibleCoordinates = Board.generateCoordinate();
 
     possibleCoordinates.forEach(block => {
       this.coordinates.set(block, new Surface(new Water()));
@@ -25,7 +25,8 @@ class Board {
     }
   }
 
-  private static generateCoordinate = (n: number) => {
+  public static generateCoordinate = () => {
+    const n = Configuration.boardSize;
     const response = [];
     for (let i = 0; i < n; i++) {
       let row = String.fromCharCode(65 + i);

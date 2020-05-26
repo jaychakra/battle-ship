@@ -1,9 +1,9 @@
-import {GameController} from "./Type/GameController";
+import {GameController} from "./Type/GameControl/GameController";
 import {Game} from "./Type/Game/Game";
 import {GameMode} from "./Enum";
+import {GameControllerFactory} from "./Type/GameControl/GameControllerFactory";
 
-const game = new Game(GameMode.TWO_PLAYER);
-const controller = new GameController(game);
+const controller = GameControllerFactory.getController();
 
 const run = () => {
   controller.init().then(() => {
