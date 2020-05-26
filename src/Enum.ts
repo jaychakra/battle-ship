@@ -40,5 +40,13 @@ enum GameStateIdentifier {
   COMPLETED
 }
 
+enum SeaEntityIdentifier {
+  WATER,
+  DESTROYER,
+  CARRIER,
+  BATTLESHIP,
+  CRUISER,
+  SUBMARINE,
+}
 
-export {GameMode, GameStateIdentifier, SeaEntityStatus, PlayerIdentifier, SurfaceType, ShipTypes, Impact}
+export {GameMode, GameStateIdentifier, SeaEntityStatus, PlayerIdentifier, SurfaceType, ShipTypes, Impact, SeaEntityIdentifier}

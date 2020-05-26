@@ -1,4 +1,4 @@
-import {Impact, SeaEntityStatus, SurfaceType} from "../../Enum";
+import {Impact, SeaEntityIdentifier, SeaEntityStatus, SurfaceType} from "../../Enum";
 import {ISeaEntity} from "./ISeaEntity";
 import {Board} from "../Board/Board";
 
@@ -6,6 +6,7 @@ class Ship implements ISeaEntity{
   protected status: SeaEntityStatus;
   protected surfaceType: SurfaceType;
   protected blocks: String[];
+  protected id: SeaEntityIdentifier;
 
   constructor(blocks: String[]) {
     this.status = SeaEntityStatus.CLEAN;
@@ -35,6 +36,12 @@ class Ship implements ISeaEntity{
     }
     return response;
   }
+
+  getSeaEntityIdentifier(): SeaEntityIdentifier {
+    return this.id;
+  }
+
+
 }
 
 export {Ship}

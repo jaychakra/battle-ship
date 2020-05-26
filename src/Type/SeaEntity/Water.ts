@@ -1,12 +1,14 @@
 import {ISeaEntity} from "./ISeaEntity";
-import {Impact, SeaEntityStatus, SurfaceType} from "../../Enum";
+import {Impact, SeaEntityIdentifier, SeaEntityStatus, SurfaceType} from "../../Enum";
 import {Board} from "../Board/Board";
 
 class Water implements ISeaEntity{
-  status: SeaEntityStatus;
-  surfaceType: SurfaceType;
+  protected status: SeaEntityStatus;
+  protected surfaceType: SurfaceType;
+  protected id: SeaEntityIdentifier;
   constructor() {
     this.surfaceType = SurfaceType.WATER;
+    this.id = SeaEntityIdentifier.WATER;
   }
 
   getSeaEntityStatus(): SeaEntityStatus {
@@ -16,6 +18,10 @@ class Water implements ISeaEntity{
   assessStrikeImpact(board: Board): Impact {
     this.status = SeaEntityStatus.DESTROYED;
     return Impact.WATER_SPLASHED;
+  }
+
+  getSeaEntityIdentifier(): SeaEntityIdentifier {
+    return this.id;
   }
 
 }
