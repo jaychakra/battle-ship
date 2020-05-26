@@ -5,7 +5,6 @@ const Enum_1 = require("../../Enum");
 class Ship {
     constructor(blocks) {
         this.status = Enum_1.SeaEntityStatus.CLEAN;
-        this.surfaceType = Enum_1.SurfaceType.SHIP;
         this.blocks = blocks;
     }
     getBlocks() {

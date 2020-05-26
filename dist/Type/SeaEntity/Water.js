@@ -4,7 +4,6 @@ exports.Water = void 0;
 const Enum_1 = require("../../Enum");
 class Water {
     constructor() {
-        this.surfaceType = Enum_1.SurfaceType.WATER;
         this.id = Enum_1.SeaEntityIdentifier.WATER;
     }
     getSeaEntityStatus() {

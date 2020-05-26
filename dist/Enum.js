@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SeaEntityIdentifier = exports.Impact = exports.ShipTypes = exports.SurfaceType = exports.PlayerIdentifier = exports.SeaEntityStatus = exports.GameStateIdentifier = exports.GameMode = void 0;
+exports.SeaEntityIdentifier = exports.Impact = exports.ShipTypes = exports.PlayerIdentifier = exports.SeaEntityStatus = exports.GameStateIdentifier = exports.GameMode = void 0;
 var GameMode;
 (function (GameMode) {
     GameMode[GameMode["COMPUTER"] = 0] = "COMPUTER";
@@ -20,12 +20,6 @@ var PlayerIdentifier;
     PlayerIdentifier[PlayerIdentifier["SECOND"] = 1] = "SECOND";
 })(PlayerIdentifier || (PlayerIdentifier = {}));
 exports.PlayerIdentifier = PlayerIdentifier;
-var SurfaceType;
-(function (SurfaceType) {
-    SurfaceType[SurfaceType["WATER"] = 0] = "WATER";
-    SurfaceType[SurfaceType["SHIP"] = 1] = "SHIP";
-})(SurfaceType || (SurfaceType = {}));
-exports.SurfaceType = SurfaceType;
 var ShipTypes;
 (function (ShipTypes) {
     ShipTypes[ShipTypes["DESTROYER"] = 0] = "DESTROYER";

@@ -1,9 +1,8 @@
-import { Impact, SeaEntityIdentifier, SeaEntityStatus, SurfaceType } from "../../Enum";
+import { Impact, SeaEntityIdentifier, SeaEntityStatus } from "../../Enum";
 import { ISeaEntity } from "./ISeaEntity";
 import { Board } from "../Board/Board";
 declare class Ship implements ISeaEntity {
     protected status: SeaEntityStatus;
-    protected surfaceType: SurfaceType;
     protected blocks: String[];
     protected id: SeaEntityIdentifier;
     constructor(blocks: String[]);

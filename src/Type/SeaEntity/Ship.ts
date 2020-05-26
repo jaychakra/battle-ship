@@ -1,16 +1,14 @@
-import {Impact, SeaEntityIdentifier, SeaEntityStatus, SurfaceType} from "../../Enum";
+import {Impact, SeaEntityIdentifier, SeaEntityStatus} from "../../Enum";
 import {ISeaEntity} from "./ISeaEntity";
 import {Board} from "../Board/Board";
 
 class Ship implements ISeaEntity{
   protected status: SeaEntityStatus;
-  protected surfaceType: SurfaceType;
   protected blocks: String[];
   protected id: SeaEntityIdentifier;
 
   constructor(blocks: String[]) {
     this.status = SeaEntityStatus.CLEAN;
-    this.surfaceType = SurfaceType.SHIP;
     this.blocks = blocks;
   }
 

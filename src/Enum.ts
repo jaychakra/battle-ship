@@ -14,11 +14,6 @@ enum PlayerIdentifier {
   SECOND
 }
 
-enum SurfaceType {
-  WATER,
-  SHIP
-}
-
 enum ShipTypes {
   DESTROYER,
   CARRIER,
@@ -49,4 +44,4 @@ enum SeaEntityIdentifier {
   SUBMARINE,
 }
 
-export {GameMode, GameStateIdentifier, SeaEntityStatus, PlayerIdentifier, SurfaceType, ShipTypes, Impact, SeaEntityIdentifier}
+export {GameMode, GameStateIdentifier, SeaEntityStatus, PlayerIdentifier, ShipTypes, Impact, SeaEntityIdentifier}
