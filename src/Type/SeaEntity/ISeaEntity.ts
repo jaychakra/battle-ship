@@ -7,6 +7,10 @@ interface ISeaEntity {
   assessStrikeImpact(board: Board): Impact
 
   getSeaEntityIdentifier(): SeaEntityIdentifier;
+
+  getActiveColor(): string;
+
+  getDestroyedColor(): string;
 }
 
 export {ISeaEntity}

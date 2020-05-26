@@ -1,30 +1,29 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HorizontalAssignment = void 0;
-const Enum_1 = require("../../../Enum");
-const Battleship_1 = require("../../SeaEntity/Battleship");
+const FleetAssignment_1 = require("./FleetAssignment");
 const configuration_1 = require("../../../configuration");
-const Cruiser_1 = require("../../SeaEntity/Cruiser");
-const Submarine_1 = require("../../SeaEntity/Submarine");
-const Carrier_1 = require("../../SeaEntity/Carrier");
-const Destroyer_1 = require("../../SeaEntity/Destroyer");
-class HorizontalAssignment {
-    static getBlocks(rowId, l) {
-        let row = String.fromCharCode(65 + rowId);
-        const response = [];
-        for (let i = 1; i <= l; i++) {
-            response.push(`${row}${i}`);
-        }
-        return response;
+class HorizontalAssignment extends FleetAssignment_1.FleetAssignment {
+    constructor() {
+        super();
+        this.rowsUsed = new Set();
     }
-    execute() {
-        let row = 0;
+    resetCache() {
+        this.rowsUsed = new Set();
+    }
+    getBlocks(l) {
+        let row = Math.floor(Math.random() * configuration_1.Configuration.boardSize);
+        while (this.rowsUsed.has(row)) {
+            row = Math.floor(Math.random() * configuration_1.Configuration.boardSize);
+        }
+        this.rowsUsed.add(row);
         const response = [];
-        response.push(new Cruiser_1.Cruiser(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.SeaEntityIdentifier.CRUISER])));
-        response.push(new Battleship_1.Battleship(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.SeaEntityIdentifier.BATTLESHIP])));
-        response.push(new Destroyer_1.Destroyer(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.SeaEntityIdentifier.DESTROYER])));
-        response.push(new Carrier_1.Carrier(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.SeaEntityIdentifier.CARRIER])));
-        response.push(new Submarine_1.Submarine(HorizontalAssignment.getBlocks(row++, configuration_1.Configuration.shipsLength[Enum_1.SeaEntityIdentifier.SUBMARINE])));
+        const startColumn = Math.floor(Math.random() * (configuration_1.Configuration.boardSize - l));
+        for (let i = startColumn; i < startColumn + l; i++) {
+            const rowId = String.fromCharCode(65 + row);
+            response.push(`${rowId}${i}`);
+        }
+        console.log(response);
         return response;
     }
 }

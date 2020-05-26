@@ -5,8 +5,7 @@ const Enum_1 = require("../../Enum");
 const Initializing_1 = require("./GameState/Initializing");
 const GameView_1 = require("./GameView");
 class Game {
-    constructor(gameMode) {
-        this.gameMode = gameMode;
+    constructor() {
         this.gameState = new Initializing_1.Initializing(this);
         this.gameView = new GameView_1.GameView(this);
         this.players = new Map();

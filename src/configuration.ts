@@ -25,7 +25,8 @@ const Configuration = {
   },
   damageColors: {
     CLEAN: "#00cbff",
-    DESTROYED: "#000000"
+    DESTROYED_WATER: "#CCCCCC",
+    DESTROYED_SHIP: "#000000"
   },
   boardHeader: {
     fgColor: "#000000",

@@ -2,8 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Strike = void 0;
 class Strike {
-    constructor(blocks) {
-        this.destination = blocks;
+    constructor(blocks, destructionStrategy) {
+        // @ts-ignore
+        this.target = blocks;
+        this.destination = destructionStrategy.generateDestinationFromTarget(this.target);
         this.result = new Set();
     }
     addImpact(i) {

@@ -10,7 +10,7 @@ let Board = /** @class */ (() => {
         constructor() {
             this.coordinates = new Map();
             this.fleet = configuration_1.Configuration.fleetAssignmentStrategy.execute();
-            const possibleCoordinates = Board.generateCoordinate(configuration_1.Configuration.boardSize);
+            const possibleCoordinates = Board.generateCoordinate();
             possibleCoordinates.forEach(block => {
                 this.coordinates.set(block, new Surface_1.Surface(new Water_1.Water()));
             });
@@ -51,7 +51,8 @@ let Board = /** @class */ (() => {
                 s.addImpact(Enum_1.Impact.OPPONENT_DESTROYED);
         }
     }
-    Board.generateCoordinate = (n) => {
+    Board.generateCoordinate = () => {
+        const n = configuration_1.Configuration.boardSize;
         const response = [];
         for (let i = 0; i < n; i++) {
             let row = String.fromCharCode(65 + i);

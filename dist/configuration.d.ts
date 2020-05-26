@@ -1,8 +1,11 @@
 import { HorizontalAssignment } from "./Type/Board/FleetAssignment/HorizontalAssignment";
-import { SeaEntityIdentifier } from "./Enum";
+import { GameMode, SeaEntityIdentifier } from "./Enum";
+import { Missile } from "./Type/WarHead/DestructionStrategy/Missile";
 declare const Configuration: {
     boardSize: number;
     fleetAssignmentStrategy: HorizontalAssignment;
+    destructionStrategy: Missile;
+    gameController: GameMode;
     shipsLength: {
         3: number;
         4: number;
@@ -20,7 +23,8 @@ declare const Configuration: {
     };
     damageColors: {
         CLEAN: string;
-        DESTROYED: string;
+        DESTROYED_WATER: string;
+        DESTROYED_SHIP: string;
     };
     boardHeader: {
         fgColor: string;

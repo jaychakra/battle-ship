@@ -31,6 +31,14 @@ class GameView {
     return chalk.hex(fgColor).bgHex(bgColor)(` ${text} `);
   }
 
+  public getColor(surface: Surface, isCurrentPlayer: boolean) : any {
+    if (surface.getHealth() == 0) return surface.entity.getDestroyedColor();
+    // @ts-ignore
+    if (isCurrentPlayer)  return surface.entity.getActiveColor();
+
+    return Configuration.damageColors.CLEAN;
+  }
+
   private buildUI(board: Board | any, playerIdentifier: PlayerIdentifier): String[][] {
     const n: number = Configuration.boardSize
     const header = Configuration.boardHeader;
@@ -45,18 +53,8 @@ class GameView {
       for (let j = 1; j <= n; j++) {
         const block: String = this.blockMap[i][j];
         const surface: Surface = board.getSurface(block);
-        if (surface.getHealth() == 0) {
-          displayBoard[i][j] = GameView.paint('#dedede', Configuration.damageColors.DESTROYED, " ");
-        } else {
-          if (playerIdentifier == this.game.currentPlayer) {
-            // @ts-ignore
-            const bgColor: string = Configuration.seaEntityColors[surface.entity.getSeaEntityIdentifier()];
-            displayBoard[i][j] = GameView.paint('#dedede', bgColor, " ");
-
-          } else {
-            displayBoard[i][j] = GameView.paint('#dedede', Configuration.damageColors.CLEAN, " ");
-          }
-        }
+        const bgColor = this.getColor(surface,playerIdentifier == this.game.currentPlayer);
+        displayBoard[i][j] = GameView.paint('#dedede', bgColor, " ");
       }
     }
     return displayBoard;

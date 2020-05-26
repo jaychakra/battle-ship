@@ -3,9 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Configuration = void 0;
 const HorizontalAssignment_1 = require("./Type/Board/FleetAssignment/HorizontalAssignment");
 const Enum_1 = require("./Enum");
+const Missile_1 = require("./Type/WarHead/DestructionStrategy/Missile");
 const Configuration = {
     boardSize: 9,
     fleetAssignmentStrategy: new HorizontalAssignment_1.HorizontalAssignment(),
+    destructionStrategy: new Missile_1.Missile(),
+    gameController: Enum_1.GameMode.COMPUTER,
     shipsLength: {
         [Enum_1.SeaEntityIdentifier.BATTLESHIP]: 4,
         [Enum_1.SeaEntityIdentifier.CRUISER]: 3,
@@ -23,7 +26,8 @@ const Configuration = {
     },
     damageColors: {
         CLEAN: "#00cbff",
-        DESTROYED: "#000000"
+        DESTROYED_WATER: "#CCCCCC",
+        DESTROYED_SHIP: "#000000"
     },
     boardHeader: {
         fgColor: "#000000",

@@ -1,8 +1,10 @@
 import { Impact } from "../../Enum";
+import { IDestructionStrategy } from "./DestructionStrategy/IDestructionStrategy";
 declare class Strike {
-    readonly destination: String[];
+    readonly destination: string[];
     private result;
-    constructor(blocks: String[]);
+    private readonly target;
+    constructor(blocks: String[], destructionStrategy: IDestructionStrategy);
     addImpact(i: Impact): void;
     hasImpact(i: Impact): boolean;
 }

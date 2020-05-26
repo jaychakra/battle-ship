@@ -1,7 +1,8 @@
-import { FleetAssignmentStrategy } from "./FleetAssignmentStrategy";
-import { Ship } from "../../SeaEntity/Ship";
-declare class HorizontalAssignment implements FleetAssignmentStrategy {
-    private static getBlocks;
-    execute(): Ship[];
+import { FleetAssignment } from "./FleetAssignment";
+declare class HorizontalAssignment extends FleetAssignment {
+    rowsUsed: Set<number>;
+    constructor();
+    protected resetCache(): void;
+    getBlocks(l: number): string[];
 }
 export { HorizontalAssignment };

@@ -1,6 +1,7 @@
 import {ISeaEntity} from "./ISeaEntity";
 import {Impact, SeaEntityIdentifier, SeaEntityStatus} from "../../Enum";
 import {Board} from "../Board/Board";
+import {Configuration} from "../../configuration";
 
 class Water implements ISeaEntity {
   protected status: SeaEntityStatus;
@@ -21,6 +22,14 @@ class Water implements ISeaEntity {
 
   getSeaEntityIdentifier(): SeaEntityIdentifier {
     return this.id;
+  }
+
+  getActiveColor(): string {
+    return Configuration.seaEntityColors[this.id];
+  }
+
+  getDestroyedColor(): string {
+    return Configuration.damageColors.DESTROYED_WATER;
   }
 
 }

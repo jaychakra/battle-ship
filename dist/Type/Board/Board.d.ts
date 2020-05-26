@@ -5,7 +5,7 @@ declare class Board {
     private coordinates;
     fleet: Ship[];
     constructor();
-    private static generateCoordinate;
+    static generateCoordinate: () => string[];
     private assessImpact;
     getHealth(block: String): number;
     getSurface(block: String): Surface;

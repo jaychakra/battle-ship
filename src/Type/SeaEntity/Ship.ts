@@ -1,13 +1,14 @@
 import {Impact, SeaEntityIdentifier, SeaEntityStatus} from "../../Enum";
 import {ISeaEntity} from "./ISeaEntity";
 import {Board} from "../Board/Board";
+import {Configuration} from "../../configuration";
 
-class Ship implements ISeaEntity {
+abstract class Ship implements ISeaEntity {
   protected status: SeaEntityStatus;
   protected blocks: String[];
   protected id: SeaEntityIdentifier;
 
-  constructor(blocks: String[]) {
+  protected constructor(blocks: String[]) {
     this.status = SeaEntityStatus.CLEAN;
     this.blocks = blocks;
   }
@@ -38,6 +39,14 @@ class Ship implements ISeaEntity {
   public getSeaEntityIdentifier(): SeaEntityIdentifier {
     return this.id;
   }
+
+  public getActiveColor(): string {
+    return Configuration.seaEntityColors[this.id];
+  }
+
+  public getDestroyedColor(): string {
+    return Configuration.damageColors.DESTROYED_SHIP;
+  };
 }
 
 export {Ship}
