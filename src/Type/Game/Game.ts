@@ -1,4 +1,4 @@
-import {GameMode, GameStateIdentifier, PlayerIdentifier} from "../../Enum";
+import {GameStateIdentifier, PlayerIdentifier} from "../../Enum";
 import {GameState} from "./GameState/GameState";
 import {Player} from "../Player";
 import {Strike} from "../WarHead/Strike";
@@ -7,7 +7,6 @@ import {GameView} from "./GameView";
 import {Board} from "../Board/Board";
 
 class Game {
-  private gameMode: GameMode;
   private gameState: GameState;
   currentPlayer: PlayerIdentifier;
   gameView: GameView;
@@ -15,8 +14,7 @@ class Game {
   readonly players: Map<PlayerIdentifier, Player>;
   readonly boards: Map<PlayerIdentifier, Board>;
 
-  constructor(gameMode: GameMode) {
-    this.gameMode = gameMode;
+  constructor() {
     this.gameState = new Initializing(this);
     this.gameView = new GameView(this);
     this.players = new Map<PlayerIdentifier, Player>();

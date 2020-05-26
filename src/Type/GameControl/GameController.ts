@@ -35,7 +35,6 @@ abstract class GameController {
   }
 
   protected strikeBoard(blockString: string) {
-    console.log(blockString);
     const strike: Strike = new Strike(blockString.split(" "), Configuration.destructionStrategy);
     this.game.attack(strike);
   }

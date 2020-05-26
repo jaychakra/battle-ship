@@ -8,7 +8,7 @@ import {TwoPlayerController} from "./TwoPlayerController";
 class GameControllerFactory {
 
   static getController(): GameController {
-    const game = new Game(GameMode.COMPUTER);
+    const game = new Game();
     return Configuration.gameController == GameMode.TWO_PLAYER ? new TwoPlayerController(game) : new ComputerController(game);
   }
 }
