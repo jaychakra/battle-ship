@@ -28,7 +28,6 @@ class HorizontalAssignment extends FleetAssignment{
       const rowId = String.fromCharCode(65 + row);
       response.push(`${rowId}${i}`);
     }
-    console.log(response);
     return response;
   }
 }
