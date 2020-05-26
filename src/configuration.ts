@@ -6,7 +6,7 @@ import {Missile} from "./Type/WarHead/DestructionStrategy/Missile";
 const Configuration = {
   boardSize: 9,
   fleetAssignmentStrategy: new HorizontalAssignment(),
-  destructionStrategy: new Missile(),
+  destructionStrategy: new DoorGun(),
   gameController: GameMode.COMPUTER,
   shipsLength: {
     [SeaEntityIdentifier.BATTLESHIP]: 4,
@@ -25,7 +25,7 @@ const Configuration = {
   },
   damageColors: {
     CLEAN: "#00cbff",
-    DESTROYED_WATER: "#CCCCCC",
+    DESTROYED_WATER: "#0e1f1f",
     DESTROYED_SHIP: "#000000"
   },
   boardHeader: {
