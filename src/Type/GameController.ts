@@ -1,5 +1,5 @@
-import {Game} from "./Game/Game";
 import {prompt} from "inquirer";
+import {Game} from "./Game/Game";
 import {Player} from "./Player";
 import {Strike} from "./WarHead/Strike";
 import {PlayerDataStore} from "../DataStore/PlayerDataStore";
@@ -15,10 +15,11 @@ class GameController {
   }
 
   private async addPlayerInput(id: number): Promise<any> {
+    console.log(`Adding Player ${id}`);
     const question = {
       name: "username",
       type: prompt,
-      message: `Player ${id} username: `,
+      message: "Username? ",
       default: `Player ${id}`
     }
 
@@ -30,8 +31,7 @@ class GameController {
 
     const player:Player = this.playerDataStore.get(answer.username);
 
-    this.game.addPlayer(player);
-    console.log(`Player ${answer.username} added successfully`);
+    this.game.addPlayer(player)
   }
 
   private async attackInput(): Promise<any> {

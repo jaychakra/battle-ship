@@ -65,6 +65,11 @@ class Board {
 
     if (deadShips == this.fleet.length) s.addImpact(Impact.OPPONENT_DESTROYED);
   }
+
+  public getSurface(block: String): Surface {
+    // @ts-ignore
+    return this.coordinates.get(block);
+  }
 }
 
 export {Board}
