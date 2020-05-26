@@ -44,8 +44,8 @@ class Game {
     this.gameState.attack(strike);
   }
 
-  public render(player: Player): void {
-    this.gameState.render(player);
+  public render(): void {
+    this.gameState.render();
   }
 
   public getStriker(): any {

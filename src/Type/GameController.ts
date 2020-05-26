@@ -29,7 +29,7 @@ class GameController {
       this.playerDataStore.add(answer.username, new Player(answer.username));
     }
 
-    const player:Player = this.playerDataStore.get(answer.username);
+    const player: Player = this.playerDataStore.get(answer.username);
 
     this.game.addPlayer(player)
   }
@@ -53,7 +53,7 @@ class GameController {
 
   public async loop(): Promise<any> {
     while (this.game.getGameState() != GameStateIdentifier.COMPLETED) {
-      this.game.render(this.game.getStriker());
+      this.game.render();
       await this.attackInput();
     }
   }

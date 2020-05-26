@@ -36,6 +36,11 @@ class Board {
     return response;
   }
 
+  private assessImpact(s: Strike, coordinate: Surface): void {
+    const impact: Impact = coordinate.entity.assessStrikeImpact(this);
+    s.addImpact(impact);
+  }
+
   public getHealth(block: String): number {
     if(!this.coordinates.has(block))throw new Error("Invalid Block on board");
 
@@ -43,16 +48,16 @@ class Board {
     return this.coordinates.get(block).getHealth();
   }
 
-  private assessImpact(s: Strike, coordinate: Surface): void {
-    const impact: Impact = coordinate.entity.assessStrikeImpact(this);
-    s.addImpact(impact);
+  public getSurface(block: String): Surface {
+    // @ts-ignore
+    return this.coordinates.get(block);
   }
 
   public changeSurfaceState(s: Strike): void {
     for (let block of s.destination) {
       const coordinate = this.coordinates.get(block);
       if (!!coordinate) {
-        coordinate.setHealthTo(0);
+        coordinate.setHealth(0);
         this.assessImpact(s, coordinate);
       }
     }
@@ -64,11 +69,6 @@ class Board {
     }
 
     if (deadShips == this.fleet.length) s.addImpact(Impact.OPPONENT_DESTROYED);
-  }
-
-  public getSurface(block: String): Surface {
-    // @ts-ignore
-    return this.coordinates.get(block);
   }
 }
 

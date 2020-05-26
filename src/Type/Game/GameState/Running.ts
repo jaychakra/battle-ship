@@ -30,7 +30,7 @@ class Running extends GameState {
 
   }
 
-  public render(player: Player): void {
+  public render(): void {
     this.context.gameView.drawBoard();
   }
 }

@@ -5,7 +5,6 @@ enum GameMode {
 
 enum SeaEntityStatus {
   CLEAN,
-  DIRTY,
   DESTROYED
 }
 

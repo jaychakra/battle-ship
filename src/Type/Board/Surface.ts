@@ -9,7 +9,7 @@ class Surface {
     this.entity = entity;
   }
 
-  public setHealthTo(health: number): void {
+  public setHealth(health: number): void {
     this.health = health;
   }
 

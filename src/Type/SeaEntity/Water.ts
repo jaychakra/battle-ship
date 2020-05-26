@@ -2,9 +2,10 @@ import {ISeaEntity} from "./ISeaEntity";
 import {Impact, SeaEntityIdentifier, SeaEntityStatus} from "../../Enum";
 import {Board} from "../Board/Board";
 
-class Water implements ISeaEntity{
+class Water implements ISeaEntity {
   protected status: SeaEntityStatus;
   protected id: SeaEntityIdentifier;
+
   constructor() {
     this.id = SeaEntityIdentifier.WATER;
   }
@@ -23,4 +24,5 @@ class Water implements ISeaEntity{
   }
 
 }
+
 export {Water}

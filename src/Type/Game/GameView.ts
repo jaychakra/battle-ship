@@ -50,7 +50,7 @@ class GameView {
         } else {
           if (playerIdentifier == this.game.currentPlayer) {
             // @ts-ignore
-            const bgColor:string = Configuration.seaEntityColors[surface.entity.getSeaEntityIdentifier()];
+            const bgColor: string = Configuration.seaEntityColors[surface.entity.getSeaEntityIdentifier()];
             displayBoard[i][j] = GameView.paint('#dedede', bgColor, " ");
 
           } else {
