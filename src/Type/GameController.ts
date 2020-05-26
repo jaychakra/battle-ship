@@ -4,6 +4,7 @@ import {Player} from "./Player";
 import {Strike} from "./WarHead/Strike";
 import {PlayerDataStore} from "../DataStore/PlayerDataStore";
 import {GameStateIdentifier} from "../Enum";
+import {Configuration} from "../configuration";
 
 class GameController {
   private game: Game;
@@ -42,7 +43,7 @@ class GameController {
     }
     const answer: any = await prompt([question]);
 
-    const strike: Strike = new Strike(answer.blocks.split(" "));
+    const strike: Strike = new Strike(answer.blocks.split(" "), Configuration.destructionStrategy);
     this.game.attack(strike);
   }
 

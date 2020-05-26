@@ -1,11 +1,15 @@
 import {Impact} from "../../Enum";
+import {IDestructionStrategy} from "./DestructionStrategy/IDestructionStrategy";
 
 class Strike {
-  readonly destination: String [];
+  readonly destination: string [];
   private result: Set<Impact>;
+  private readonly target: string[]
 
-  constructor(blocks: String []) {
-    this.destination = blocks;
+  constructor(blocks: String [], destructionStrategy: IDestructionStrategy) {
+    // @ts-ignore
+    this.target = blocks;
+    this.destination = destructionStrategy.generateDestinationFromTarget(this.target);
     this.result = new Set<Impact>();
   }
 
