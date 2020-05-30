@@ -2,6 +2,7 @@ import {Game} from '../Game';
 import {Player} from '../../Player';
 import {Strike} from '../../WarHead/Strike';
 import {GameStateIdentifier} from "../../../Enum";
+import {Board} from "../../Board/Board";
 
 abstract class GameState {
   protected context: Game;
@@ -11,7 +12,7 @@ abstract class GameState {
     return this.name;
   }
 
-  public addPlayer(player: Player): void {
+  public addPlayer(player: Player, board: Board): void {
     throw new Error(`Player addition not allowed in state ${this.name}`);
   }
 

@@ -13,6 +13,11 @@ class TwoPlayerController extends GameController {
       this.strikeBoard(await this.attackInput());
     }
   }
+
+  async init(): Promise<any> {
+    await this.addPlayerInput(1);
+    await this.addPlayerInput(2);
+  }
 }
 
 export {TwoPlayerController}

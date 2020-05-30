@@ -4,6 +4,7 @@ import {Player} from "../Player";
 import {Strike} from "../WarHead/Strike";
 import {PlayerDataStore} from "../../DataStore/PlayerDataStore";
 import {Configuration} from "../../configuration";
+import {Board} from "../Board/Board";
 
 abstract class GameController {
   protected game: Game;
@@ -14,7 +15,16 @@ abstract class GameController {
     this.playerDataStore = PlayerDataStore.getInstance();
   }
 
-  private async addPlayerInput(id: number): Promise<any> {
+  protected addPlayer(username: String): void {
+    if (!this.playerDataStore.has(username)) {
+      this.playerDataStore.add(username, new Player(username));
+    }
+    const player: Player = this.playerDataStore.get(username);
+    this.game.addPlayer(player, new Board(Configuration.fleetAssignmentStrategy));
+  }
+
+
+  protected async addPlayerInput(id: number): Promise<any> {
     console.log(`Adding Player ${id}`);
     const question = {
       name: "username",
@@ -24,14 +34,7 @@ abstract class GameController {
     }
 
     const answer: any = await prompt([question]);
-
-    if (!this.playerDataStore.has(answer.username)) {
-      this.playerDataStore.add(answer.username, new Player(answer.username));
-    }
-
-    const player: Player = this.playerDataStore.get(answer.username);
-
-    this.game.addPlayer(player)
+    this.addPlayer(answer.username);
   }
 
   protected strikeBoard(blockString: string) {
@@ -51,10 +54,7 @@ abstract class GameController {
     return answers.blocks;
   }
 
-  public async init(): Promise<any> {
-    await this.addPlayerInput(1);
-    await this.addPlayerInput(2);
-  }
+  public abstract async init(): Promise<any> ;
 
   public abstract async loop(): Promise<any>
 }

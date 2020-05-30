@@ -5,7 +5,7 @@ class GameState {
     getName() {
         return this.name;
     }
-    addPlayer(player) {
+    addPlayer(player, board) {
         throw new Error(`Player addition not allowed in state ${this.name}`);
     }
     render() {

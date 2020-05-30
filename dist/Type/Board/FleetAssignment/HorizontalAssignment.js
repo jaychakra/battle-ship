@@ -12,6 +12,8 @@ class HorizontalAssignment extends FleetAssignment_1.FleetAssignment {
         this.rowsUsed = new Set();
     }
     getBlocks(l) {
+        if (l > configuration_1.Configuration.boardSize)
+            throw new Error("Length of ship should be less than board size");
         let row = Math.floor(Math.random() * configuration_1.Configuration.boardSize);
         while (this.rowsUsed.has(row)) {
             row = Math.floor(Math.random() * configuration_1.Configuration.boardSize);

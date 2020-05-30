@@ -6,5 +6,6 @@ declare class ComputerController extends GameController {
     private generateRandomBlockString;
     private attackByComputer;
     loop(): Promise<any>;
+    init(): Promise<any>;
 }
 export { ComputerController };

@@ -21,8 +21,8 @@ class Game {
     changePlayersTurn() {
         this.currentPlayer = Game.getRivalIdentifier(this.currentPlayer);
     }
-    addPlayer(player) {
-        this.gameState.addPlayer(player);
+    addPlayer(player, board) {
+        this.gameState.addPlayer(player, board);
     }
     attack(strike) {
         this.gameState.attack(strike);

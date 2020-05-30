@@ -34,8 +34,8 @@ class Game {
     this.currentPlayer = Game.getRivalIdentifier(this.currentPlayer);
   }
 
-  public addPlayer(player: Player): void {
-    this.gameState.addPlayer(player);
+  public addPlayer(player: Player, board: Board): void {
+    this.gameState.addPlayer(player, board);
   }
 
   public attack(strike: Strike): void {

@@ -4,6 +4,7 @@ import {GameState} from "./GameState";
 import {Running} from "./Running";
 import {GameStateIdentifier, PlayerIdentifier} from "../../../Enum";
 import {Board} from "../../Board/Board";
+import {Configuration} from "../../../configuration";
 
 class Initializing extends GameState {
   constructor(context: Game) {
@@ -12,15 +13,15 @@ class Initializing extends GameState {
     this.context = context;
   }
 
-  public addPlayer(player: Player): void {
+  public addPlayer(player: Player, board: Board): void {
     switch (this.context.players.size) {
       case 0:
         this.context.players.set(PlayerIdentifier.FIRST, player);
-        this.context.boards.set(PlayerIdentifier.FIRST, new Board());
+        this.context.boards.set(PlayerIdentifier.FIRST, board);
         break;
       case 1:
         this.context.players.set(PlayerIdentifier.SECOND, player);
-        this.context.boards.set(PlayerIdentifier.SECOND, new Board());
+        this.context.boards.set(PlayerIdentifier.SECOND, board);
         break
       default:
         throw new Error("No more players can be added");

@@ -13,6 +13,10 @@ class TwoPlayerController extends GameController_1.GameController {
             this.strikeBoard(await this.attackInput());
         }
     }
+    async init() {
+        await this.addPlayerInput(1);
+        await this.addPlayerInput(2);
+    }
 }
 exports.TwoPlayerController = TwoPlayerController;
 //# sourceMappingURL=TwoPlayerController.js.map

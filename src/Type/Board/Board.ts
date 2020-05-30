@@ -4,14 +4,15 @@ import {Ship} from "../SeaEntity/Ship";
 import {Configuration} from "../../configuration";
 import {Strike} from "../WarHead/Strike";
 import {Impact, SeaEntityStatus} from "../../Enum";
+import {IFleetAssignmentStrategy} from "./FleetAssignment/IFleetAssignmentStrategy";
 
 class Board {
   private coordinates: Map<String, Surface>;
   fleet: Ship[];
 
-  constructor() {
+  constructor(fleetAssignmentStrategy: IFleetAssignmentStrategy) {
     this.coordinates = new Map<String, Surface>();
-    this.fleet = Configuration.fleetAssignmentStrategy.execute();
+    this.fleet = fleetAssignmentStrategy.execute();
     const possibleCoordinates = Board.generateCoordinate();
 
     possibleCoordinates.forEach(block => {

@@ -1,10 +1,10 @@
 import { HorizontalAssignment } from "./Type/Board/FleetAssignment/HorizontalAssignment";
 import { GameMode, SeaEntityIdentifier } from "./Enum";
-import { Missile } from "./Type/WarHead/DestructionStrategy/Missile";
+import { DoorGun } from "./Type/WarHead/DestructionStrategy/DoorGun";
 declare const Configuration: {
     boardSize: number;
     fleetAssignmentStrategy: HorizontalAssignment;
-    destructionStrategy: Missile;
+    destructionStrategy: DoorGun;
     gameController: GameMode;
     shipsLength: {
         3: number;

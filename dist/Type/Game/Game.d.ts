@@ -15,7 +15,7 @@ declare class Game {
     static getRivalIdentifier(id: PlayerIdentifier): PlayerIdentifier;
     changeState(state: GameState): void;
     changePlayersTurn(): void;
-    addPlayer(player: Player): void;
+    addPlayer(player: Player, board: Board): void;
     attack(strike: Strike): void;
     render(): void;
     getStriker(): any;

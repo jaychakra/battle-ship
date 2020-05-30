@@ -34,6 +34,11 @@ class ComputerController extends GameController {
       this.attackByComputer();
     }
   }
+
+  async init(): Promise<any> {
+    await this.addPlayerInput(1);
+    this.addPlayer("COMPUTER");
+  }
 }
 
 export {ComputerController}

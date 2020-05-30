@@ -30,6 +30,10 @@ class ComputerController extends GameController_1.GameController {
             this.attackByComputer();
         }
     }
+    async init() {
+        await this.addPlayerInput(1);
+        this.addPlayer("COMPUTER");
+    }
 }
 exports.ComputerController = ComputerController;
 //# sourceMappingURL=ComputerController.js.map

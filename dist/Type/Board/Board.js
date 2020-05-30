@@ -7,9 +7,9 @@ const configuration_1 = require("../../configuration");
 const Enum_1 = require("../../Enum");
 let Board = /** @class */ (() => {
     class Board {
-        constructor() {
+        constructor(fleetAssignmentStrategy) {
             this.coordinates = new Map();
-            this.fleet = configuration_1.Configuration.fleetAssignmentStrategy.execute();
+            this.fleet = fleetAssignmentStrategy.execute();
             const possibleCoordinates = Board.generateCoordinate();
             possibleCoordinates.forEach(block => {
                 this.coordinates.set(block, new Surface_1.Surface(new Water_1.Water()));
